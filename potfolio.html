@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        #navbar {
+            background-color: brown;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            list-style: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            margin-right: auto;
+        }
+        
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        .navbar a:hover {
+            color: springgreen;
+        }
+        
+        .footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .Intro p {
+            font-weight: bold;
+            font-size: 100px;
+            background-color: black;
+            color: white;
+            padding: 50px;
+            text-align: right;
+        }
+        
+        .image-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+        
+        .image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+        
+        .textContainer p {
+            font-size: 20px;
+        }
+        
+        .textContainer h3 {
+            font-weight: bold;
+        }
+        
+        .buttonClass a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        .buttonClass button {
+            background-color: brown;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 30px;
+        }
+        
+        .buttonClass h3 {
+            font-weight: bold;
+        }
+        
+        .buttonClass {
+            padding: 50px;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-evenly;
+            width: 30px;
+            height: 21px;
+            position: relative;
+            z-index: 101;
+            margin-left: auto;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                justify-content: space-between;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                margin-right: 0;
+            }
+            
+            .Intro p {
+                font-size: 2rem;
+                padding: 40px;
+                text-align: center;
+            }
+            
+            .image-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .textContainer h3, .textContainer p {
+                margin-top: 20px;
+            }
+            
+            .buttonClass h3, .buttonClass p {
+                text-align: center;
+            }
+            
+            .buttonClass button {
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: brown;
+                padding: 20px;
+                gap: 15px;
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .Intro p {
+                font-size: 2rem;
+                padding: 20px;
+            }
+            
+            .image img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .textContainer h3 {
+                font-size: 1.3rem;
+            }
+            
+            .textContainer p {
+                font-size: 1rem;
+            }
+            
+            .buttonClass h3 {
+                font-size: 1.3rem;
+            }
+            
+            .buttonClass button {
+                padding: 10px 20px;
+            }
+
+            html{
+                scroll-behavior: smooth;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <ul class="navbar">
+            <li class="nav-links" id="nav-links">
+                <a href="#intro">Home</a>
+                <a href="#about-us">About Us</a>
+                <a href="#contact-us">Contact Us</a>
+            </li>
+            <li class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="Intro" id="intro">
+        <p>Welcome <br>you all</p>
+    </div>
+    
+    <div class="image-container" id="about-us">
+        <div class="image">
+            <img src="./DSC_0783(1).jpg" alt="Profile Picture">
+        </div>
+        <div class="textContainer">
+            <h3>Hi, I am Jerin Vishal B</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, officia dolore eligendi eos quis facere magni. Laudantium, ea. Laudantium amet consequatur atque quia suscipit quibusdam aliquid eaque tempora optio est!</p>
+        </div>
+    </div>
+     
+    <div class="buttonClass" id="contact-us">
+        <h3>Contact Us</h3>
+        <p>Send Your Mail to Contact Us</p>
+        <button><a href="mailto:jerinvishal2k02@gmail.com">Mail To</a></button>
+    </div>
+    
+    <footer class="footer">
+        <p>Copyright &copy; 2025</p>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
